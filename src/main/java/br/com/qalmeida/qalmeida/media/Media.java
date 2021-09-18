@@ -1,4 +1,4 @@
-package br.com.qalmeida.media;
+package br.com.qalmeida.qalmeida.media;
 
 public class Media {
 
