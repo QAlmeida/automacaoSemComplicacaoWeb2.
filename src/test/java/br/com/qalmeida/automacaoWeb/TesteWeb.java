@@ -1,24 +1,26 @@
 package br.com.qalmeida.automacaoWeb;
 
+import br.com.qalmeida.core.Driver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TesteWeb {
-    ChromeDriver driver; // criando o objeto do tipo ChromeDriver
+
+    WebDriver driver; // criando o objeto do tipo Webdriver
+    Driver driverWeb;
 
     @Before
     public void inicializaTeste(){
+        driverWeb = new Driver("chrome"); //instanciando o objeto
 
-        WebDriverManager.chromedriver().setup(); //Verifica a versão do navegador e alinha tudo
-
-        driver = new ChromeDriver(); //instanciando o objeto
-        driver.manage().window().maximize(); // maximizando a tela
+        driver = driverWeb.getDriver();
 
         driver.get("https://www.chronosacademy.com.br"); //abrindo um endereço
 
@@ -32,9 +34,15 @@ public class TesteWeb {
         WebElement txtTitulo = driver.findElement(By.xpath(xpathTitulo));
         String titulo = txtTitulo.getText();
 
+        //WebElement txtTitulo = driver.findElementByXPath(xpathTitulo);
+
         Assert.assertEquals("Porque Tempo É Conhecimento", titulo);
 
 
+    }
+
+    public void segundoTeste(){
+        String xpathBotao = "//div3";
     }
 
 

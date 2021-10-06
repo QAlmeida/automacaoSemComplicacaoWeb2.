@@ -1,4 +1,4 @@
-package br.com.qalmeida.qalmeida.media;
+package br.com.qalmeida.media;
 
 import org.junit.Test;
 
